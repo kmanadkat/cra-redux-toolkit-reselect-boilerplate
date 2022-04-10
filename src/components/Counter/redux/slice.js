@@ -1,51 +1,51 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
-  data: 0,
-  loading: false,
-  loaded: false,
-  error: null
+    data: null,
+    loading: false,
+    loaded: false,
+    error: null
 };
 
-const counterSlice = createSlice({
-  name: 'counter',
-  initialState,
-  reducers: {
-    loadCounter(state) {
-      return {
+const scoreSlice = createSlice({
+    name: 'score',
+    initialState,
+    reducers: {
+    loadScore(state) {
+        return {
         ...state,
         loading: true,
         loaded: false,
         error: null
-      };
+        };
     },
-    loadedCounter(_, action) {
-      return {
+    loadedScore(_, action) {
+        return {
         data: action.payload,
         loading: false,
         loaded: true,
         error: null
-      };
+        };
     },
-    errorCounter(state, action) {
-      return {
+    errorScore(state, action) {
+        return {
         ...state,
         loading: false,
         loaded: true,
         error: action.payload
-      };
+        };
     },
-    resetCounter() {
+    resetScore() {
         return {...initialState}
     }
-  }
+    }
 });
 
 export const {
-    loadCounter,
-    loadedCounter,
-    errorCounter,
-    resetCounter,
-} = counterSlice.actions;
+    loadScore,
+    loadedScore,
+    errorScore,
+    resetScore,
+} = scoreSlice.actions;
 
-export const { name, reducer } = counterSlice;
+export const { name, reducer } = scoreSlice;

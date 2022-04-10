@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import { name as counter, reducer as counterReducer } from '../components/Counter/redux/slice';
+import { name as score, reducer as scoreReducer } from '../components/Counter/redux/slice';
+
 
 const createRootReducer = () => {
     return combineReducers({
-        [counter]: counterReducer,
+        [score]: scoreReducer,
     })
 }
 

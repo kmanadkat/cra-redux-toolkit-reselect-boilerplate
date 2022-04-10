@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
-import { loadCounter, loadedCounter } from "../redux/slice"
+import { loadScore, loadedScore } from "../redux/slice"
 
 const useCounter = (initialData) => {
-    const [counter, setCounter] = useState(initialData)
+    const [score, setScore] = useState(initialData)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(loadCounter())
+        dispatch(loadScore())
     }, [dispatch])
 
     const increment = () => {
-        dispatch(loadedCounter(counter + 1))
-        setCounter(counter + 1)
+        dispatch(loadedScore(score + 1))
+        setScore(score + 1)
     }
 
     const decrement = () => {
-        dispatch(loadedCounter(counter - 1))
-        setCounter(counter - 1)
+        dispatch(loadedScore(score - 1))
+        setScore(score - 1)
     }
 
     return {increment, decrement}

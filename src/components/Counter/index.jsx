@@ -1,19 +1,19 @@
-import React from 'react'
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import "./styles/Counter.scss"
 import structuredSelector from './redux/selector';
 import useCounter from './hooks/useCounter';
+import { parseData } from './utils';
+import "./styles/Counter.scss"
 
 /**
  * Counter description
  */
 const Counter = ({ children }) => {
-  const counterSliceData = useSelector(structuredSelector) 
-  const {increment, decrement} = useCounter(counterSliceData.counterData)
+  const scoreSliceData = useSelector(structuredSelector) 
+  const {increment, decrement} = useCounter(scoreSliceData.scoreData)
   return (
-    <div className='counter-wrapper'>
-      <h2>Counter: {counterSliceData.counterData}</h2>
+    <div className='Counter-wrapper'>
+      <h2>score: {parseData(scoreSliceData.scoreData)}</h2>
       <button onClick={increment}>Increase</button>
       <button onClick={decrement}>Decrease</button>
       {children}
